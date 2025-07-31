@@ -12,7 +12,7 @@ const StudentDashboard = () => {
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const [pleas, setPleas] = useState([]);
-const { authToken, login } = useAuth();
+  const { authToken, login } = useAuth();
   useEffect(() => {
     const fetchCourses = async () => {
       try {
