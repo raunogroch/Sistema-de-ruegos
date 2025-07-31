@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Card, Button, Table, Modal, Alert } from 'react-bootstrap';
+import { useState, useEffect, useContext } from 'react';
+import { Card, Button, Table, Modal, Alert, Form } from 'react-bootstrap';
 import axios from '../../services/api';
-import AuthContext from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 const TeacherDashboard = () => {
   const [courses, setCourses] = useState([]);
@@ -12,8 +12,7 @@ const TeacherDashboard = () => {
   const [status, setStatus] = useState('pending');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const { authToken } = useContext(AuthContext);
-
+  const { authToken, login } = useAuth();
   useEffect(() => {
     const fetchCourses = async () => {
       try {
